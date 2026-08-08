@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./partials/head') %>
+</head>
+<body style="background-image: url('/black.png'); 
+              
+             background-size: cover;
+             background-repeat: no-repeat;
+             align-items: center;">
+     <%- include("./partials/nav") %>
+<div class="card" 
+     style="max-width: 900px; margin: 40px auto; padding: 25px;
+     background: rgba(255, 255, 255, 0.15);
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+     border-radius: 1rem;
+     color: white;">
+
+  <div style="display: flex; gap: 30px; align-items: flex-start;">
+
+    <!-- LEFT IMAGE -->
+    <div style="flex-shrink: 0;">
+      <img src="<%= blog.coverImageURL %>" 
+           alt="Blog Image"
+           style="width: 260px; border-radius: 15px; object-fit: cover;">
+    </div>
+   
+
+    <!-- RIGHT CONTENT -->
+    <div style="flex: 1;">
+
+      <h3 style="margin-bottom: 15px; font-weight: 600;">
+        <%= blog.title %>
+      </h3>
+      <h5 style="margin-bottom: 15px; font-weight: 600;" > 
+        Author: <%= blog.createdBy.username %>
+    </h5>
+
+      <p style="line-height: 1.7; text-align: justify; margin-bottom: 20px;">
+        <%= blog.body %>
+      </p>
+
+      <a href="/" class="btn btn-primary">
+        Go Back
+      </a>
+
+      
+      
+    
+
+    </div>
+
+  </div>
+</div>
+<div  class="card" 
+     style="max-width: 900px; margin: 40px auto; padding: 25px;
+     background: rgba(255, 255, 255, 0.15);
+     backdrop-filter: blur(15px);
+     -webkit-backdrop-filter: blur(15px);
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+     border-radius: 1rem;
+     color: white;">
+<form  action="/displayBlog/<%= blog._id %>" method="post">
+<div >
+   <div> <h6>add your comment</h6></div>
+  
+   <div>
+    <input type="text" name="body" placeholder="Add comment">
+
+    <button type="submit">add</button>
+   </div>
+   
+   
+</div>
+</form>
+
+<div style="width: 3rem;color: black;">
+----
+</div>
+   
+     <div> <h4>comments:</h4></div>
+
+<% if (blog.comments.length > 0) { %>
+
+    <% blog.comments.forEach(comm => { %>
+        <ul>
+            <h6> <img src="/user.png" style="border-radius: 50%; width: 1.5rem;"><%= comm.createdBy.username %></h6>
+            <ul><h5><%= comm.body %></h5></ul>
+        </ul>
+    <% }) %>
+
+<% } else { %>
+
+    <h6>No comments yet</h6>
+
+<% } %>
+   </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>

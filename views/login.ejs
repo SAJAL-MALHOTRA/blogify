@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('./partials/head') %>
+</head>
+<body class="bg-light d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;"></body>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid d-flex flex-column align-items-center text-center">
+
+    <img 
+      src="/Logo.png" 
+      alt="Logo" 
+      class="mb-2"
+      style="width: 120px; height: auto;border-radius: 50%;"
+    >
+
+    <span class="navbar-brand mb-0 h4">
+      Welcome back, let's continue
+    </span>
+
+  </div>
+</nav>
+
+    
+    <!-- <h2>Login</h2>
+
+    <form action="/login" method="POST">
+
+        <div>
+            <label>Username:</label><br>
+            <input type="text" name="username" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Email:</label><br>
+            <input type="email" name="email" required>
+        </div>
+
+        <br>
+
+        <div>
+            <label>Password:</label><br>
+            <input type="password" name="password" required>
+        </div>
+
+        <br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <form action = "/register" method="GET" class="mt-3">
+   
+   <button type="submit" >haven't registered?</button>
+ </form> -->
+
+
+
+<form  action="/login" method="POST">
+
+ <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">username</label>
+    <input type="text" class="form-control" name="username" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+  </div>
+
+
+  <div class="mb-3">
+    <label for="exampleInputPassword1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+
+  <!-- <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> -->
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+ </form>
+
+    <form action = "/register" method="GET" class="mt-3">
+   
+   <button type="submit" class="btn btn-secondary w-100">haven't registered?</button>
+ </form>
+
+
+
+ 
+
+ <%- include('./partials/scripts') %>
+</body>
+</html>

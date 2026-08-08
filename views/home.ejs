@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./partials/head') %>
+</head>
+<body style="background-image: url('/black.png'); 
+             background-size: cover;
+             background-repeat: no-repeat;
+             min-height: 100vh;
+             padding: 20px;">
+    <%- include("./partials/nav") %>
+
+    <!-- Container for all cards -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+      <% Blogs.forEach(blog => { %>
+        <div style="
+          width: 300px;
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(15px);
+          -webkit-backdrop-filter: blur(15px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          border-radius: 1rem;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+          color: white;
+          overflow: hidden;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        " 
+        onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 12px 48px rgba(0,0,0,0.5)';" 
+        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 8px 32px rgba(0,0,0,0.25)';">
+
+          <!-- Blog Image -->
+          <img src="<%= blog.coverImageURL %>" alt="..." style="width: 100%; height: 180px; object-fit: cover;">
+
+          <!-- Blog Info -->
+          <div style="padding: 15px;">
+            <h5 style="margin: 0 0 10px 0;"><%= blog.title %></h5>
+            <a href="/displayBlog/<%= blog._id %>" class="btn btn-primary" style="margin-top: 10px;">Open</a>
+          </div>
+
+        </div>
+      <% }) %>
+
+    </div>
+
+    <%- include('./partials/scripts') %>
+</body>
+</html>
